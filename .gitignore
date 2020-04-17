@@ -22,8 +22,8 @@
 
 # Ignore application configuration
 /config/application.yml
-/config/database.yml
+config/database.yml
+/public
+/test
 
-public/uploads/picture/
-public/uploads/tmp
 

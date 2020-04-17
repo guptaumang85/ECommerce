@@ -4,11 +4,28 @@
     <title>ECommerce</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application', 'nested_form' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+        <%= link_to "sample app", '#', id: "logo" %>
+          <ul class="nav">
+            <li class="pull-right"><%= link_to "Sign in", '#' %></li>
+            <li class="pull-right"><%= link_to "Sign 2in", '#' %></li>
+          </ul>
+
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <%= render partial: 'shared/flash_message' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

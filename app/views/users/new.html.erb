@@ -1,0 +1,48 @@
+<%= nested_form_for @user, html: {multipart: true} do |f| %>
+  <ul class="remove_error_message">
+    <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <p>
+    <%= f.radio_button :is_buyer, false, class: "radio_width" %> Seller <%= f.radio_button :is_buyer, true, class: "radio_width" %> Buyer
+  </p>
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name%>
+  </p>
+
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name%>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email%>
+  </p>
+
+  <p>
+    <%= f.label :contact_number %><br>
+    <%= f.text_field :contact_number %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+     <%= f.password_field :password %>
+  </p>
+  <p>
+    <%=f.label :password_confirmation %><br>
+      <%=f.password_field :password_confirmation%>
+  </p>
+
+  <div class="form-group">
+    <%= f.fields_for :picture_attributes do |image_upload| %> 
+      <%= image_upload.file_field :image %>
+    <% end %>
+  </div>
+
+  <p>
+    <%= f.submit :"Sign Up", class: "btn btn-default button" %>    
+  </p>
+
+<% end %>
