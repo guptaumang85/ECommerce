@@ -15,8 +15,19 @@
         <div class="container">
         <%= link_to "sample app", '#', id: "logo" %>
           <ul class="nav">
-            <li class="pull-right"><%= link_to "Sign in", '#' %></li>
-            <li class="pull-right"><%= link_to "Sign 2in", '#' %></li>
+            <% if logged_in? %>
+              <div class="dropdown pull-right">
+                <li><%= link_to "Accounts", '#', class: 'btn btn-default nav_button' %>
+                </li>
+                <div class="dropdown-content">
+                  <a href="#">Profile</a>
+                  <%= link_to "Log out", logout_path, method: :delete %>
+                </div>
+              </div>
+              <!-- show user details -->
+            <% else %>
+              <li class="pull-right"><%= link_to "Sign in", login_path, class: 'btn btn-default nav_button' %></li>
+            <% end %>
           </ul>
 
         </div>
