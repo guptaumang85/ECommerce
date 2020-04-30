@@ -22,16 +22,17 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :keep_releases, 5
+set :linked_files, %w{config/database.yml config/local_env.yml}
+# set :migration_servers, nil
 
 ## Defaults:
 # set :scm,           :git
 # set :branch,        :master
 # set :format,        :pretty
 # set :log_level,     :debug
-# set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
-# set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
